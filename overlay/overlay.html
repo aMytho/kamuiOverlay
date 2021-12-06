@@ -11,7 +11,7 @@
 
 <body>
     <script>
-        let connection = new WebSocket('ws://localhost:8080');
+        let connection = new WebSocket('ws://localhost:8081');
         let timer = null;
 
         // When the connection is open, send some data to the server
@@ -25,12 +25,12 @@
             let message = JSON.parse(e.data);
             console.log(message);
             document.getElementById('message').innerHTML = message.message;
-            document.getElementById('main').style.opacity = `100%`;
+            document.getElementById('main').style.opacity = `1`;
             if (timer) {
                 clearTimeout(timer);
             }
             timer = setTimeout(() => {
-                document.getElementById('main').style.opacity = `0%`
+                document.getElementById('main').style.opacity = `0`
             }, 4000);
         }
 
@@ -40,7 +40,7 @@
         }
     </script>
 
-    <div id="main" style="transition: opacity 2s;opacity: 0%;">
+    <div id="main" style="transition: opacity 2s;opacity: 0;">
         <img src="/animated.gif">
         <blockquote style="position: absolute;top: 0px;left: 220px;" class="oval-thought">
             <p id="message" style="font-size: 1.75em;">This is a blockquote that is styled to look like a thought bubble

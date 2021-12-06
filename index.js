@@ -10,7 +10,7 @@ console.log("Dependencies loaded. Starting server...");
 // create an express app
 const app = express();
 app.use(express.static('overlay'));
-app.listen(3000, () => console.log('Server ready on port 3000'));
+app.listen(4200, () => console.log('Server ready on port 3000'));
 
 // When a user makes a request to /overlay, serve the overlay/overlay.html file
 app.get('/overlay', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/overlay', (req, res) => {
 
 // create a websocket. Overlay talks to this
 const wss = new Server({
-    port: 8080
+    port: 8081
 });
 
 wss.on('connection', function connection(ws) {
